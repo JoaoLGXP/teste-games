@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração</title>
+</head>
+<body>
+    <h2>Administração</h2>
+    <form id="loginForm">
+        <label for="username">Usuário:</label><br>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Senha:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Login">
+    </form>
+
+    <div id="materiasContainer" style="display: none;">
+        <h3>Matérias</h3>
+        <table border="1" id="materiasTable">
+            <!-- Matérias serão inseridas aqui via JavaScript -->
+        </table>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Simulando a autenticação do usuário
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            
+            // Aqui você faria uma requisição ao servidor para autenticar o usuário
+            // e obter as matérias do servidor
+            
+            // Exemplo: Se as credenciais forem válidas, exiba a tabela de matérias
+            document.getElementById("materiasContainer").style.display = "block";
+            
+            // Exemplo: Preencha a tabela de matérias com dados simulados
+            var materias = [
+                { id: 1, titulo: "Matéria 1", conteudo: "Conteúdo da Matéria 1" },
+                { id: 2, titulo: "Matéria 2", conteudo: "Conteúdo da Matéria 2" },
+                { id: 3, titulo: "Matéria 3", conteudo: "Conteúdo da Matéria 3" }
+            ];
+            var materiasTable = document.getElementById("materiasTable");
+            materias.forEach(function(materia) {
+                var row = materiasTable.insertRow();
+                row.insertCell().textContent = materia.id;
+                row.insertCell().textContent = materia.titulo;
+                row.insertCell().textContent = materia.conteudo;
+                row.insertCell().innerHTML = "<button onclick='editarMateria(" + materia.id + ")'>Editar</button> <button onclick='excluirMateria(" + materia.id + ")'>Excluir</button>";
+            });
+        });
+
+        function editarMateria(id) {
+            // Aqui você implementaria a lógica para editar a matéria com o ID fornecido
+            alert("Editar Matéria com ID: " + id);
+        }
+
+        function excluirMateria(id) {
+            // Aqui você implementaria a lógica para excluir a matéria com o ID fornecido
+            alert("Excluir Matéria com ID: " + id);
+        }
+    </script>
+</body>
+</html>

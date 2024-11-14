@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Matéria</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Enviar Matéria</h2>
+        <form action="process.php" method="POST" enctype="multipart/form-data">
+            <label for="titulo">Título:</label><br>
+            <input type="text" id="titulo" name="titulo" required><br>
+            <label for="conteudo">Conteúdo:</label><br>
+            <textarea id="conteudo" name="conteudo" rows="8" required></textarea><br>
+            <label for="imagem">Imagem:</label><br>
+            <input type="file" id="imagem" name="imagem"><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+</html>
